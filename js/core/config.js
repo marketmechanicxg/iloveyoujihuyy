@@ -105,7 +105,26 @@ const CONFIG = {
       quote: "I don't believe in fate. But I believe in you. Which, it turns out, is the same thing.",
       icon: "♡",
     },
+  ],
 
+  // ─── GALLERY CAPTIONS ─────────────────────────────────────────────
+  //
+  // CARA TAMBAH FOTO:
+  //   1. Taruh file foto di folder:  assets/images/
+  //   2. Isi field "img" dengan path-nya, contoh:
+  //        img: 'assets/images/foto1.jpg'
+  //   3. Kalau "img" dikosongkan (''), kartu tampil sebagai gradient placeholder
+  //
+  // Rasio foto ideal: 3:4 (portrait) — misal 600x800px atau 900x1200px
+  //
+  gallery: [
+    { img: '', caption: "The way you look when you're not looking.", tag: "candid"   },
+    { img: '', caption: "Late nights that turned into mornings.",     tag: "always"  },
+    { img: '', caption: "Your laugh is genuinely a personality.",     tag: "chaos"   },
+    { img: '', caption: "I memorized every version of you.",          tag: "favorite"},
+    { img: '', caption: "Soft hours, golden light, you.",             tag: "ours"    },
+    { img: '', caption: "The version of me that exists near you.",    tag: "best self"},
+  ],
 };
 
 // Freeze to prevent accidental mutations
