@@ -287,7 +287,7 @@ function initHeartFloaters() {
 document.addEventListener('DOMContentLoaded', () => {
   // Build dynamic sections
   DOMBuilder.buildTimeline();
-  // Gallery is static HTML in index.html — edit img src langsung di sana
+  DOMBuilder.buildGallery();
 
   // Ambient 2D particles overlay
   const ambientParticles = new AmbientParticles('particle-canvas');

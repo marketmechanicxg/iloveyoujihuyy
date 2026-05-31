@@ -32,6 +32,21 @@ class ThreeBackground {
   async init() {
     if (!window.THREE) return;
 
+    // Safety timeout — jika Three.js hang lebih dari 3 detik, skip saja
+    const timeout = new Promise(resolve => setTimeout(resolve, 3000));
+    const setup = new Promise(resolve => {
+      try {
+        this._setup();
+      } catch(e) {
+        console.warn('[ThreeBackground] init error, skipping:', e);
+      }
+      resolve();
+    });
+    await Promise.race([setup, timeout]);
+    return;
+  }
+
+  _setup() {
     this.scene = new THREE.Scene();
     this.scene.fog = new THREE.FogExp2(0x030008, 0.04);
 

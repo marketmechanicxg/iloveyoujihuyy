@@ -21,7 +21,12 @@ class AppController {
 
       // 3. Three.js ambient background (additive particles on top)
       this.systems.three = new ThreeBackground();
-      await this.systems.three.init();
+      try {
+        const threeTimeout = new Promise(resolve => setTimeout(resolve, 4000));
+        await Promise.race([this.systems.three.init(), threeTimeout]);
+      } catch(e) {
+        console.warn('[AppController] Three.js failed, continuing without it:', e);
+      }
 
       // 4. Preloader
       this.systems.preloader = new Preloader();
