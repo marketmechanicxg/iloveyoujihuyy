@@ -76,27 +76,27 @@ const CONFIG = {
   // ─── LOVE STORY DATA ──────────────────────────────────────────────
   timeline: [
     {
-      date: "The Beginning",
-      title: "First Collision",
-      quote: "A thousand strangers passed. But you — you were different. You looked like a feeling I had forgotten.",
+      date: "Second",
+      title: "You're Pretty",
+      quote: "But not just the kind of pretty that people notice at first glance. You're the kind of pretty that keeps getting prettier the more I know you. Every smile, every laugh, every little expression you make somehow makes you even more beautiful in my eyes. And honestly? Sometimes I still catch myself looking at you and thinking, "INI BENERAN GW PACARNYA?" 😭",
       icon: "✦",
     },
     {
-      date: "First Words",
-      title: "The Message That Changed Everything",
-      quote: "Three words on a screen. And somehow the entire architecture of my life shifted imperceptibly.",
+      date: "Third",
+      title: "You're Funny",
+      quote: "I swear, you can make me laugh without even trying. Sometimes it's your jokes, sometimes it's the random things you say, and sometimes it's just you being yourself. Even the simplest conversations somehow become my favorite part of the day when they're with you.",
       icon: "◈",
     },
     {
-      date: "First Voice",
-      title: "When I Heard You",
-      quote: "Your laugh was the most disorienting thing. I replayed it seventeen times. Accidentally.",
+      date: "Fourth",
+      title: "little things you do",
+      quote: "Mungkin kamu nggak sadar, tapi hal-hal kecil yang kamu lakuin selalu bikin aku senyum. The way you ask if I've eaten, the way you remember random things about me, atau cara kamu peduli meskipun kelihatannya sederhana. Those little things make me feel loved every single day.",
       icon: "◉",
     },
     {
-      date: "First Meeting",
-      title: "Time Stopped Here",
-      quote: "You walked in and the ambient noise of the world just... disappeared. Like someone had pressed mute on everything that wasn't you.",
+      date: "Fifth",
+      title: "you're you",
+      quote: "I love you because you're you. Not because you're perfect. Not because you always say the right things. Not because you never make mistakes. I love you because of all the little things that make you who you are... and honestly, if someone asked me why I love you, I could talk about your smile, your laugh, or how pretty you are. But at the end of the day, it all comes back to the same answer, cause you're you.",
       icon: "✧",
     },
     {
