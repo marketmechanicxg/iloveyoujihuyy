@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="A love story written in starlight — made only for you." />
+  <meta name="theme-color" content="#030008" />
+  <title>Jihan. — you are my favorite universe</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/effects.css" />
+
+  <style>
+    /* Critical above-fold paint */
+    html { background: #030008; }
+  </style>
+</head>
+<body>
+
+  <!-- ─── CURSOR ──────────────────────────────────────────── -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
+
+  <!-- ─── FIXED LAYERS ────────────────────────────────────── -->
+  <canvas id="galaxy-canvas" aria-hidden="true"></canvas>
+  <canvas id="three-canvas" aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ─── PRELOADER ───────────────────────────────────────── -->
+  <div id="preloader" role="progressbar" aria-label="Loading experience">
+    <div class="preloader__bg"></div>
+    <div class="preloader__rings">
+      <div class="preloader__ring-outer"></div>
+      <div class="preloader__ring-mid"></div>
+    </div>
+
+    <div class="preloader__content">
+      <span class="preloader__heart">♡</span>
+      <div class="preloader__ring" aria-hidden="true"></div>
+      <p class="preloader__quote"></p>
+      <div>
+        <div class="preloader__bar">
+          <div class="preloader__bar-fill"></div>
+        </div>
+        <span class="preloader__percent">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── NAVIGATION ──────────────────────────────────────── -->
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#hero" class="nav__logo">Jihan.</a>
+    <ul class="nav__links" role="list">
+      <li><a href="#timeline" class="hover-line">Story</a></li>
+      <li><a href="#gallery" class="hover-line">Gallery</a></li>
+      <li><a href="#love-letter" class="hover-line">Letter</a></li>
+      <li><a href="#finale" class="hover-line">Ending</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── NAV DOTS ─────────────────────────────────────────── -->
+  <nav class="nav-dots" aria-label="Section navigation"></nav>
+
+  <!-- ─── AUDIO PLAYER (injected by audio-system.js) ──────── -->
+
+  <!-- ════════════════════════════════════════════════════════
+       MAIN EXPERIENCE
+       ════════════════════════════════════════════════════════ -->
+  <main>
+
+    <!-- ─── HERO ──────────────────────────────────────────── -->
+    <section class="hero" id="hero" data-scene="hero">
+      <div class="hero__particles" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__badge">
+        
+
+        <h1 class="hero__headline t-hero glow-text">
+          <span class="line">You are my</span>
+          <span class="line"><em>favorite</em> universe.</span>
+        </h1>
+
+        <p class="hero__sub">
+          Every star, every path, every moment... somehow led me to you. And now, I can't imagine my world without you. Happy Birthday, my love
+        </p>
+
+        <div class="hero__cta">
+          <a href="#timeline" class="btn btn-primary" data-magnetic>
+            READ MY HEART
+          </a>
+          <a href="#love-letter" class="btn btn-ghost" data-magnetic>
+            Read the Letter
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>scroll</span>
+        <div class="hero__scroll-arrow"></div>
+      </div>
+
+      <!-- Decorative orbs -->
+      <div class="orb-decoration orb-violet" style="width:600px;height:600px;top:-20%;right:-15%;opacity:0.5;"></div>
+      <div class="orb-decoration orb-pink" style="width:400px;height:400px;bottom:-10%;left:-8%;opacity:0.4;"></div>
+    </section>
+
+    <!-- ─── TIMELINE ──────────────────────────────────────── -->
+    <section class="timeline" id="timeline" data-scene="timeline">
+      <div class="section-number" aria-hidden="true">01</div>
+      <div class="container">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            5 Reasons<br /><em style="font-style:italic;color:var(--clr-pink-soft);">Why I Love You</em>
+          </h2>
+          <p class="section-header__desc t-body" data-reveal="fade-up">
+            Sebenernya alasannya lebih dari 5. But if I listed them all, this page would never end, so here are 5 reasons why i love you.
+          </p>
+        </header>
+
+        <div class="timeline__inner">
+          <div class="timeline__glow-line" aria-hidden="true"></div>
+          <div class="timeline__items"></div>
+          <!-- Items injected by JS -->
+        </div>
+      </div>
+
+      <div class="orb-decoration orb-blue" style="width:500px;height:500px;top:30%;left:-10%;opacity:0.3;"></div>
+    </section>
+
+    <!-- ─── GALLERY ───────────────────────────────────────── -->
+    <section class="gallery" id="gallery" data-scene="gallery">
+      <div class="section-number" aria-hidden="true">02</div>
+      <div class="container">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            The whole universe, in one person
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            Every frame<br /><em style="font-style:italic;color:var(--clr-violet-soft);">is yours</em>
+          </h2>
+          <p class="section-header__desc t-body" data-reveal="fade-up">
+            I don't know how you do it, but every day I find another reason to like you even more. Awalnya aku pikir perasaanku ke kamu udah segitu aja, ternyata makin hari malah makin dalam. The more I know you, the more I fall for you....
+          </p>
+        </header>
+
+        <div class="gallery__grid" role="list">
+
+          <!-- ─── FOTO 1 ── ganti src dengan path foto kamu ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img1.jpeg" alt="foto 1" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Glowing without even trying — and that's the most breathtaking thing about you.</span>
+                <span class="gallery__caption-tag">#effortless</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 2 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img2.jpeg" alt="foto 2" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">The kind of beauty that doesn't ask for permission to take your breath away.</span>
+                <span class="gallery__caption-tag">#undeniable</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 3 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img3.jpeg" alt="foto 3" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">If happiness had a sound,
+it would be your laugh - Lowkey addicted to your laugh, can i hear it again?</span>
+                <span class="gallery__caption-tag">#addicted</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 4 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img4.jpeg" alt="foto 4" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">You're pretty, but it's your personality that makes you unforgettable</span>
+                <span class="gallery__caption-tag">#unforgettable</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 5 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img5.jpeg" alt="foto 5" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">Golden light, soft world — and somehow, you are still the most radiant thing in it.</span>
+                <span class="gallery__caption-tag">#luminous</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ─── FOTO 6 ── -->
+          <div class="gallery__card" data-reveal="fade-up">
+            <div class="gallery__card-inner">
+              <img class="gallery__photo" src="assets/images/img6.jpeg" alt="foto 6" loading="lazy" />
+              <div class="gallery__caption">
+                <span class="gallery__caption-text">You are the reason I believe some things are simply worth being devoted to.</span>
+                <span class="gallery__caption-tag">#devoted</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center;margin-top:clamp(40px,6vw,72px);">
+          <p class="t-quote" data-reveal="scale" style="max-width:600px;margin:0 auto;color:var(--clr-white-40);">
+            "Not just a photograph. The reason I take them."
+          </p>
+        </div>
+      </div>
+
+      <div class="orb-decoration orb-pink" style="width:600px;height:600px;bottom:-10%;right:-10%;opacity:0.35;"></div>
+    </section>
+
+    <!-- ─── LOVE LETTER ───────────────────────────────────── -->
+    <section class="love-letter" id="love-letter" data-scene="love-letter">
+      <div class="section-number" aria-hidden="true">03</div>
+      <div class="letter__spotlight" aria-hidden="true"></div>
+
+      <div class="love-letter__inner">
+        <header class="section-header">
+          <p class="t-label section-header__eyebrow" data-reveal="fade-up">
+            
+          </p>
+          <div class="section-divider"></div>
+          <h2 class="t-section-title section-header__title" data-reveal="fade-up">
+            Things I carry<br /><em style="font-style:italic;color:var(--clr-pink-soft);">in silence</em>
+          </h2>
+        </header>
+
+        <div class="love-letter__paper glass-card">
+          <span class="letter__salutation">To you, always —</span>
+
+          <div class="letter__body">
+            <p>
+              Happy Birthday, Love..
+            </p>
+
+            <p>
+              There are so many things i could say about you, and honestly, i don't even know where to start.
+            </p>
+
+            <p>
+              Sometimes i wonder if you realize how much of an impact you have on my life. Cause to you, a lot of the things you do might seem normal, but to me, they're the things that make my days better. Like, the way you laugh at random things, the way you tell stories, the way you make ordinary moments feel special and honestly, those are just a few things.
+            </p>
+
+            <p>
+              Sebelum kenal kamu, i never knew someone could mean this much to me. Tapi sekarang, hal-hal kecil langsung ngingetin aku ke kamu, some songs, hal random yang aku liat.
+            </p>
+
+            <p>
+              You're not just someone i love.
+You're the person i want to share things with first, the person i want to tell when something good happens, the person i look for when my day isn't going well..
+            </p>
+
+            <p>
+              So on your birthday, I just want you to know this:
+            </p>
+
+            <p>
+              You are loved more than you think, you are appreciated more than you realize and you mean so much more to me than I could ever put into words.
+            </p>
+
+            <p>
+              Thank you for being you.
+Thank you for every little act of care, and every moment we've shared together.
+            </p>
+
+            <p>
+              I hope this year brings you happiness, peace, success, and everything you've been wishing for. Because if anyone deserves all the good things in the world, it's you..
+            </p>
+
+          </div>
+
+          <span class="letter__sign">Happy Birthday, my world </span>
+        </div>
+      </div>
+
+      <div class="orb-decoration orb-violet" style="width:700px;height:700px;top:-20%;left:-15%;opacity:0.25;"></div>
+    </section>
+
+    <!-- ─── FINALE ────────────────────────────────────────── -->
+    <section class="finale" id="finale" data-scene="finale">
+      <div class="finale__bg-glow" aria-hidden="true"></div>
+
+      <div class="finale__inner">
+        <span class="finale__heart" aria-hidden="true">♡</span>
+        <h2 class="finale__quote t-hero glow-text">
+          Every timeline<br />leads me<br /><em>back to you.</em>
+        </h2>
+        <p class="finale__sub t-label" style="margin-top:40px;">
+          SO HAPPY BIRTHDAY MY LOVE, HOPE YOU LIKE IT
+        </p>
+
+        <div style="margin-top:60px;">
+          <a href="#hero" class="btn btn-primary pulse-glow" data-magnetic>
+            Read Again ?
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer>
+    <p>made with devotion &amp; too many sleepless nights &nbsp;·&nbsp; Jihan. ♡</p>
+  </footer>
+
+  <!-- ════════════════════════════════════════════════════════
+       SCRIPTS
+       ════════════════════════════════════════════════════════ -->
+
+  <!-- CDN Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <!-- Core -->
+  <script src="js/core/config.js"></script>
+  <script src="js/core/state.js"></script>
+  <script src="js/core/app-controller.js"></script>
+
+  <!-- Systems -->
+  <script src="js/systems/performance.js"></script>
+  <script src="js/systems/galaxy-background.js"></script>
+  <script src="js/systems/three-background.js"></script>
+  <script src="js/systems/preloader.js"></script>
+  <script src="js/systems/audio-system.js"></script>
+
+  <!-- Engine -->
+  <script src="js/engine/animation-engine.js"></script>
+  <script src="js/engine/scene-manager.js"></script>
+  <script src="js/engine/interaction-engine.js"></script>
+
+  <!-- Main -->
+  <script src="js/main/script.js"></script>
+
+</body>
+</html>
