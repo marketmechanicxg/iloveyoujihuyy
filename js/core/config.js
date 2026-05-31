@@ -117,14 +117,7 @@ const CONFIG = {
   //
   // Rasio foto ideal: 3:4 (portrait) — misal 600x800px atau 900x1200px
   //
-  gallery: [
-    { img: '', caption: "The way you look when you're not looking.", tag: "candid"   },
-    { img: '', caption: "Late nights that turned into mornings.",     tag: "always"  },
-    { img: '', caption: "Your laugh is genuinely a personality.",     tag: "chaos"   },
-    { img: '', caption: "I memorized every version of you.",          tag: "favorite"},
-    { img: '', caption: "Soft hours, golden light, you.",             tag: "ours"    },
-    { img: '', caption: "The version of me that exists near you.",    tag: "best self"},
-  ],
+  
 };
 
 // Freeze to prevent accidental mutations
