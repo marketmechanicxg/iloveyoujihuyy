@@ -3,6 +3,23 @@
  * Emotional loading experience with quotes and animations
  */
 
+// Safety: if GSAP failed to load, provide a no-op stub so nothing crashes
+if (typeof gsap === 'undefined') {
+  window.gsap = {
+    to: (target, vars) => { if (vars.onComplete) setTimeout(vars.onComplete, (vars.duration || 0) * 1000); return {}; },
+    set: () => {},
+    timeline: (vars) => {
+      const tl = {
+        to: function(t, v, pos) { if (v.onComplete) setTimeout(v.onComplete, (v.duration || 0) * 1000); return tl; },
+        onComplete: vars?.onComplete,
+      };
+      if (vars?.onComplete) setTimeout(vars.onComplete, 100);
+      return tl;
+    },
+  };
+  console.warn('[Preloader] GSAP not loaded — using fallback stub');
+}
+
 class Preloader {
   constructor() {
     this.el = document.getElementById('preloader');
@@ -89,6 +106,11 @@ class Preloader {
     const min = CONFIG.timing.preloaderMin;
     const startTime = Date.now();
 
+    // Hard cap: never hang longer than preloaderMin + 4s
+    const hardTimeout = setTimeout(() => {
+      onComplete();
+    }, min + 4000);
+
     // Simulate resource loading
     const chunks = [
       { target: 30, delay: 200 },
@@ -122,6 +144,7 @@ class Preloader {
             if (chunkIdx < chunks.length) {
               processChunk();
             } else {
+              clearTimeout(hardTimeout);
               // Ensure minimum display time
               const elapsed = Date.now() - startTime;
               const remaining = Math.max(0, min - elapsed);
@@ -138,33 +161,56 @@ class Preloader {
   _complete(resolve) {
     clearInterval(this._quoteTimer);
 
-    const tl = gsap.timeline({ onComplete: resolve });
+    // Safety fallback — if GSAP fails or an element is missing,
+    // force-finish the preloader after 2 s so the page never stays stuck.
+    const fallbackTimer = setTimeout(() => {
+      if (this.el) this.el.style.display = 'none';
+      document.body.classList.add('loaded');
+      if (typeof State !== 'undefined') State.set('preloaderDone', true);
+      resolve();
+    }, 2000);
+
+    const quoteEl   = this.el?.querySelector('.preloader__quote');
+    const contentEl = this.el?.querySelector('.preloader__content');
 
     // Burst particles
     this._burstParticles();
 
-    tl.to(this.el.querySelector('.preloader__quote'), {
-      opacity: 0,
-      y: -20,
-      duration: 0.5,
-      ease: 'power2.in',
-    })
-    .to(this.el.querySelector('.preloader__content'), {
-      opacity: 0,
-      scale: 0.95,
-      duration: 0.7,
-      ease: 'power3.in',
-    }, '-=0.3')
-    .to(this.el, {
+    const tl = gsap.timeline({
+      onComplete: () => {
+        clearTimeout(fallbackTimer);
+        resolve();
+      }
+    });
+
+    if (quoteEl) {
+      tl.to(quoteEl, {
+        opacity: 0,
+        y: -20,
+        duration: 0.5,
+        ease: 'power2.in',
+      });
+    }
+
+    if (contentEl) {
+      tl.to(contentEl, {
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.7,
+        ease: 'power3.in',
+      }, quoteEl ? '-=0.3' : 0);
+    }
+
+    tl.to(this.el, {
       opacity: 0,
       duration: 0.8,
       ease: 'power2.inOut',
       onComplete: () => {
         this.el.style.display = 'none';
         document.body.classList.add('loaded');
-        State.set('preloaderDone', true);
+        if (typeof State !== 'undefined') State.set('preloaderDone', true);
       }
-    }, '-=0.3');
+    }, (quoteEl || contentEl) ? '-=0.3' : 0);
   }
 
   _burstParticles() {

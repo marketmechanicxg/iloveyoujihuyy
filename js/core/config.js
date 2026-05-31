@@ -78,7 +78,7 @@ const CONFIG = {
     {
       date: "Second",
       title: "You're Pretty",
-      quote: "But not just the kind of pretty that people notice at first glance. You're the kind of pretty that keeps getting prettier the more I know you. Every smile, every laugh, every little expression you make somehow makes you even more beautiful in my eyes. And honestly? Sometimes I still catch myself looking at you and thinking, "INI BENERAN GW PACARNYA?" 😭",
+      quote: "But not just the kind of pretty that people notice at first glance. You're the kind of pretty that keeps getting prettier the more I know you. Every smile, every laugh, every little expression you make somehow makes you even more beautiful in my eyes. And honestly? Sometimes I still catch myself looking at you and thinking, 201cINI BENERAN GW PACARNYA?201d 😭",
       icon: "✦",
     },
     {
